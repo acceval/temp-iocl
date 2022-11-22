@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integration-service
+spec:
+  selector:
+    matchLabels:
+      run: integration-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: integration-service
+    spec:
+      containers:
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-integration
+        name: integration-service
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1024Mi"
+          limits:
+            memory: "1536Mi"
+        env:
+          - name: _JAVA_OPTIONS
+            value: "-Xms512m -Xmx1024m"
+        ports:
+        - containerPort: 8099
+        volumeMounts:
+          - name: logs
+            mountPath: /logs
+            subPath: integration
+      volumes:
+        - name: logs
+          persistentVolumeClaim:
+            claimName: logs-pvc
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        nameservers:
+          - 10.14.16.11
+          - 10.14.16.14
+        searches:
+          - petronas.com.my
+      hostAliases:
+        - ip: "172.25.32.57"
+          hostnames:
+            - "myeaiint.petronas.com"
+        - ip: "172.25.52.31"
+          hostnames:
+            - "myeaiuat.petronas.com"
+        - ip: "172.25.52.186"
+          hostnames:
+            - "myeaiuatint.petronas.com"
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: integration-service
+  labels:
+    run: integration-service
+spec:
+  ports:
+  - port: 8099
+    protocol: TCP
+  selector:
+    run: integration-service

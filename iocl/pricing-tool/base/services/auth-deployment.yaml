@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-server
+spec:
+  selector:
+    matchLabels:
+      run: auth-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: auth-server
+    spec:
+      containers:
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-auth
+        name: auth-server
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1024Mi"
+          limits:
+            memory: "1536Mi"
+        env:
+          - name: _JAVA_OPTIONS
+            value: "-Xms512m -Xmx1024m"
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: logs
+          mountPath: /logs
+          subPath: auth
+      volumes:
+        - name: logs
+          persistentVolumeClaim:
+            claimName: logs-pvc
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-server
+  labels:
+    run: auth-server
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+  selector:
+    run: auth-server

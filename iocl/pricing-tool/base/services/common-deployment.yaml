@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: common-service
+spec:
+  selector:
+    matchLabels:
+      run: common-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: common-service
+    spec:
+      containers:
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-commons
+        name: common-service
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1024Mi"
+          limits:
+            memory: "1536Mi"
+        env:
+          - name: APP_NAME
+            value: "commons-service"
+          - name: CONFIG_URI
+            value: "http://config-server:8888"
+          - name: _JAVA_OPTIONS
+            value: "-Xms512m -Xmx1024m"
+        ports:
+        - containerPort: 8100
+        volumeMounts:
+        - name: common
+          mountPath: /file-repo
+          subPath: file-repo
+        - name: common
+          mountPath: /upload-dir
+          subPath: upload-dir
+        - name: common
+          mountPath: /archive-dir
+          subPath: archive-dir
+        - name: logs
+          mountPath: /logs
+          subPath: common
+      volumes:
+        - name: common
+          persistentVolumeClaim:
+            claimName: common-pvc
+        - name: logs
+          persistentVolumeClaim:
+            claimName: logs-pvc
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        nameservers:
+          - 10.14.16.11
+          - 10.14.16.14
+        searches:
+          - petronas.com.my
+      hostAliases:
+        - ip: "10.14.29.10"
+          hostnames:
+            - "cen302-smtp.petronas.petronet.dir"
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-service
+  labels:
+    run: common-service
+spec:
+  ports:
+  - port: 8100
+    protocol: TCP
+  selector:
+    run: common-service
