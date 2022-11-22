@@ -26,14 +26,6 @@ spec:
             value: "-Xms512m -Xmx1024m"
         ports:
         - containerPort: 8761
-        volumeMounts:
-          - name: logs
-            mountPath: /logs
-            subPath: eureka
-      volumes:
-        - name: logs
-          persistentVolumeClaim:
-            claimName: logs-pvc
       dnsPolicy: ClusterFirst
       restartPolicy: Always
 

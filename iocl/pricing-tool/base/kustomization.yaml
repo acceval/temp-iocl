@@ -7,10 +7,8 @@ resources:
 # - ./services/eureka-deployment.yaml
 # - ./services/gateway-deployment.yaml
 # - ./services/identity-management-deployment.yaml
-# - ./services/common-deployment.yaml
 # - ./services/master-data-deployment.yaml
 # - ./services/auth-deployment.yaml
-# - ./services/integration-deployment.yaml
 # - ./services/rabbitmq-deployment.yaml
 # - ./services/transport-deployment.yaml
 # - ./services/hazelcast-rbac.yml
@@ -21,3 +19,5 @@ resources:
 # - ./services/etl-deployment.yaml
 # - ./services/industry-analysis-deployment.yaml
 # - ./services/pricing-power-deployment.yaml
+# - ./services/common-deployment.yaml
+# - ./services/integration-deployment.yaml

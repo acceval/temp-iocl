@@ -4,5 +4,5 @@ bases:
 - ../../base
 namespace: pricing-tool-int
 patchesStrategicMerge:
-  - patches-nginx.yaml
+  - patches-core.yaml
   # - patches.yaml

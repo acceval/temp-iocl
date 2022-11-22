@@ -26,14 +26,6 @@ spec:
             value: "-Xms512m -Xmx1024m"
         ports:
         - containerPort: 8000
-        volumeMounts:
-          - name: logs
-            mountPath: /logs
-            subPath: gateway
-      volumes:
-        - name: logs
-          persistentVolumeClaim:
-            claimName: logs-pvc
       dnsPolicy: ClusterFirst
       restartPolicy: Always
 
@@ -42,9 +34,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    service.beta.kubernetes.io/azure-dns-label-name: azdev.smarttradzt.com
-    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
   name: zuul-server
   labels:
     run: zuul-server

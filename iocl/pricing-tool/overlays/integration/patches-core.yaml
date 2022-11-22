@@ -1,3 +1,10 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: pricing-tool-int
+  labels:
+    name: pricing-tool-int
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:

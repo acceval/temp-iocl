@@ -30,14 +30,6 @@ spec:
             value: "-Xms1024m -Xmx2048m"
         ports:
         - containerPort: 8094
-        volumeMounts:
-          - name: logs
-            mountPath: /logs
-            subPath: pricing
-      volumes:
-        - name: logs
-          persistentVolumeClaim:
-            claimName: logs-pvc
       dnsPolicy: ClusterFirst
       restartPolicy: Always
 

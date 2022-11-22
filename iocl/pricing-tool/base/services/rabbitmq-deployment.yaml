@@ -20,14 +20,6 @@ spec:
             name: http
           - containerPort: 5672
             name: amqp
-        volumeMounts:
-          - name: logs
-            mountPath: /logs
-            subPath: rabbitmq
-      volumes:
-        - name: logs
-          persistentVolumeClaim:
-            claimName: logs-pvc
       dnsPolicy: ClusterFirst
       restartPolicy: Always
 

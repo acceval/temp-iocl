@@ -195,3 +195,23 @@ spec:
       containers:
       - name: ocr-service
         image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-ocr-server:1.2.0-DEVT
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-webapp
+spec:
+  type: NodePort
+  ports:
+  - port: 3000
+    nodePort: 30000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zuul-server
+spec:
+  type: NodePort
+  ports:
+  - port: 8000
+    nodePort: 30030
