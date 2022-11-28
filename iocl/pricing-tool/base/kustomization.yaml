@@ -1,6 +1,7 @@
 commonLabels:
   app: pricing-tool
 resources:
+- ./core/namespaces.yaml
 - ./core/nginx-webapp.yaml
 # - ./services/angular-deployment.yaml
 # - ./services/config-deployment.yaml
