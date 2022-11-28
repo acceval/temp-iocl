@@ -24,15 +24,6 @@ spec:
             memory: "128Mi"
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: logs-nginx
-          mountPath: /var/local/webapp
-      volumes:
-        - name: logs-webapp
-          hostPath:
-            path: /var/local/webapp
-            type: DirectoryOrCreate
-
 
 ---
 
