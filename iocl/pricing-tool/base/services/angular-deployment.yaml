@@ -49,10 +49,10 @@ kind: Service
 metadata:
   name: angular-webapp
   labels:
-    app: angular-webapp
+    run: angular-webapp
 spec:
-  selector:
-    app: angular-webapp
   ports:
   - port: 3000
     protocol: TCP
+  selector:
+    run: angular-webapp
