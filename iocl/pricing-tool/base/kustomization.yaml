@@ -3,11 +3,11 @@ commonLabels:
 resources:
 - ./core/namespaces.yaml
 - ./core/nginx-webapp.yaml
-- ./services/angular-deployment.yaml
+# - ./services/angular-deployment.yaml
 - ./services/config-deployment.yaml
-- ./services/eureka-deployment.yaml
-- ./services/gateway-deployment.yaml
-- ./services/identity-management-deployment.yaml
+# - ./services/eureka-deployment.yaml
+# - ./services/gateway-deployment.yaml
+# - ./services/identity-management-deployment.yaml
 # - ./services/master-data-deployment.yaml
 # - ./services/auth-deployment.yaml
 # - ./services/rabbitmq-deployment.yaml
