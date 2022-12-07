@@ -20,6 +20,8 @@ spec:
             name: http
           - containerPort: 5672
             name: amqp
+      imagePullSecrets:
+        - name: smarttradzt-ecr
       dnsPolicy: ClusterFirst
       restartPolicy: Always
 

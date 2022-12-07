@@ -50,6 +50,8 @@ spec:
         - name: logs
           persistentVolumeClaim:
             claimName: logs-pvc
+      imagePullSecrets:
+        - name: smarttradzt-ecr
       dnsPolicy: ClusterFirst
       dnsConfig:
         nameservers:

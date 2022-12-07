@@ -26,6 +26,8 @@ spec:
             value: "-Xms512m -Xmx1024m"
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+        - name: smarttradzt-ecr
       dnsPolicy: ClusterFirst
       restartPolicy: Always
 
