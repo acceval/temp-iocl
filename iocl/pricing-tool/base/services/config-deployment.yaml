@@ -46,6 +46,7 @@ metadata:
 spec:
   ports:
   - port: 8888
+    targetPort: 8888
     protocol: TCP
   selector:
     app: config-server
