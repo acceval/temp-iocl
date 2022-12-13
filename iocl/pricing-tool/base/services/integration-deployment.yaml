@@ -15,7 +15,7 @@ spec:
       containers:
       - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-integration
         name: integration-service
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         resources:
           requests:
             memory: "1024Mi"
