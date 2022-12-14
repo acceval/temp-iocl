@@ -8,17 +8,17 @@ resources:
 - ./services/eureka-deployment.yaml
 - ./services/gateway-deployment.yaml
 - ./services/identity-management-deployment.yaml
-# - ./services/master-data-deployment.yaml
-# - ./services/auth-deployment.yaml
-# - ./services/rabbitmq-deployment.yaml
-# - ./services/transport-deployment.yaml
-# - ./services/hazelcast-rbac.yml
-# - ./services/volume-deployment.yaml
-# - ./services/deal-management-deployment.yaml
-# - ./services/pricing-deployment.yaml
-# - ./services/workflow-deployment.yaml
-# - ./services/etl-deployment.yaml
-# - ./services/industry-analysis-deployment.yaml
-# - ./services/pricing-power-deployment.yaml
-# - ./services/common-deployment.yaml
-# - ./services/integration-deployment.yaml
+- ./services/master-data-deployment.yaml
+- ./services/auth-deployment.yaml
+- ./services/rabbitmq-deployment.yaml
+- ./services/transport-deployment.yaml
+- ./services/hazelcast-rbac.yml
+- ./services/volume-deployment.yaml
+- ./services/deal-management-deployment.yaml
+- ./services/pricing-deployment.yaml
+- ./services/workflow-deployment.yaml
+- ./services/etl-deployment.yaml
+- ./services/industry-analysis-deployment.yaml
+- ./services/pricing-power-deployment.yaml
+- ./services/common-deployment.yaml
+- ./services/integration-deployment.yaml
