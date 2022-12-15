@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: common-pv
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  flexVolume:
+    driver: "fnordian/cv"
+    readOnly: false
+    options:
+      source: "//10.0.10.202/pmt"
+      mountOptions: "dir_mode=0700,file_mode=0600"
+      cifsuser: "nobody"
+      cifspass: "nobody"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: common-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 10Gi
