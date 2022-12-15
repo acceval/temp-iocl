@@ -19,4 +19,4 @@ rm -rf iocl.zip
 rm -rf iocl
 wget https://github.com/acceval/temp-iocl/raw/main/iocl.zip
 unzip iocl.zip
-kubectl apply -k iocl/pricing-tool/overlays/integration
+kubectl apply -k iocl/pricing-tool/overlays/staging
