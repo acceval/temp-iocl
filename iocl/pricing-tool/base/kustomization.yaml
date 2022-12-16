@@ -12,7 +12,6 @@ resources:
 # - ./services/master-data-deployment.yaml
 # - ./services/auth-deployment.yaml
 # - ./services/rabbitmq-deployment.yaml
-# - ./services/transport-deployment.yaml
 # - ./services/hazelcast-rbac.yml
 # - ./services/volume-deployment.yaml
 # - ./services/deal-management-deployment.yaml

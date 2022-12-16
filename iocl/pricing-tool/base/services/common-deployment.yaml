@@ -53,16 +53,6 @@ spec:
       imagePullSecrets:
         - name: smarttradzt-ecr
       dnsPolicy: ClusterFirst
-      dnsConfig:
-        nameservers:
-          - 10.14.16.11
-          - 10.14.16.14
-        searches:
-          - petronas.com.my
-      hostAliases:
-        - ip: "10.14.29.10"
-          hostnames:
-            - "cen302-smtp.petronas.petronet.dir"
       restartPolicy: Always
 
 ---

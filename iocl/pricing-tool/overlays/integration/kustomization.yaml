@@ -5,6 +5,7 @@ bases:
 namespace: pricing-tool-int
 patchesStrategicMerge:
   - patches-core.yaml
-  - patches-aws.yaml
+  - patches-iocl.yaml
+resources:
   - pv-smb-common.yaml
   - pv-smb-logs.yaml
