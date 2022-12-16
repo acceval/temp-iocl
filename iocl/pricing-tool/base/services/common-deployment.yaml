@@ -30,33 +30,11 @@ spec:
             value: "-Xms512m -Xmx1024m"
         ports:
         - containerPort: 8100
-        volumeMounts:
-        - name: common
-          mountPath: /file-repo
-          subPath: file-repo
-        - name: common
-          mountPath: /upload-dir
-          subPath: upload-dir
-        - name: common
-          mountPath: /archive-dir
-          subPath: archive-dir
-        - name: logs
-          mountPath: /logs
-          subPath: common
-      volumes:
-        - name: common
-          persistentVolumeClaim:
-            claimName: common-pvc
-        - name: logs
-          persistentVolumeClaim:
-            claimName: logs-pvc
       imagePullSecrets:
         - name: smarttradzt-ecr
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
