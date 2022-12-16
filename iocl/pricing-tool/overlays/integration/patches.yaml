@@ -1,0 +1,243 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-webapp
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: angular-webapp
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-smarttradz-angular:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+      - name: config-server
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-config:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: eureka-server
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-eureka:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuul-server
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: zuul-server
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-zuul:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: identity-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-identity-management:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: common-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: common-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-commons:1.2.1-DEVT
+        volumeMounts:
+        - name: common-vm
+          mountPath: /file-repo
+          subPath: common/file-repo
+        - name: common-vm
+          mountPath: /upload-dir
+          subPath: common/upload-dir
+        - name: common-vm
+          mountPath: /archive-dir
+          subPath: common/archive-dir
+        - name: logs-vm
+          mountPath: /logs
+          subPath: logs
+      volumes:
+        - name: common-vm
+          persistentVolumeClaim:
+            claimName: common-pvc
+        - name: logs-vm
+          persistentVolumeClaim:
+            claimName: logs-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: masterdata-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: masterdata-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-master-data:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-server
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: auth-server
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-auth:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integration-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: integration-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-integration:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volume-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: volume-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-volume:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deal-management-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: deal-management-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-deal-management:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricing-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: pricing-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-pricing:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workflow-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: workflow-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-workflow-server:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: etl-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: etl-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-etl:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: industry-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: industry-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-industry-analysis:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricing-power-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: pricing-power-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-pricing-power:1.2.1-DEVT
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocr-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: ocr-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-ocr-server:1.2.1-DEVT
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-webapp
+spec:
+  type: NodePort
+  ports:
+  - port: 3000
+    nodePort: 30000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zuul-server
+spec:
+  type: NodePort
+  ports:
+  - port: 8000
+    nodePort: 30030

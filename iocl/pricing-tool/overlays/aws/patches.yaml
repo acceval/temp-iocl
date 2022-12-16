@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: angular-webapp
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -26,6 +27,7 @@ kind: Deployment
 metadata:
   name: eureka-server
 spec:
+  replicas: 1
   template:
     spec:
       containers:
@@ -37,6 +39,7 @@ kind: Deployment
 metadata:
   name: zuul-server
 spec:
+  replicas: 1
   template:
     spec:
       containers:
@@ -48,6 +51,7 @@ kind: Deployment
 metadata:
   name: identity-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -59,6 +63,7 @@ kind: Deployment
 metadata:
   name: common-service
 spec:
+  replicas: 1
   template:
     spec:
       containers:
@@ -90,6 +95,7 @@ kind: Deployment
 metadata:
   name: masterdata-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -101,6 +107,7 @@ kind: Deployment
 metadata:
   name: auth-server
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -112,6 +119,7 @@ kind: Deployment
 metadata:
   name: integration-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -121,19 +129,9 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: transport-service
-spec:
-  template:
-    spec:
-      containers:
-      - name: transport-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-transport:1.2.1-DEVT
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
   name: volume-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -145,6 +143,7 @@ kind: Deployment
 metadata:
   name: deal-management-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -156,6 +155,7 @@ kind: Deployment
 metadata:
   name: pricing-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -167,6 +167,7 @@ kind: Deployment
 metadata:
   name: workflow-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -178,6 +179,7 @@ kind: Deployment
 metadata:
   name: etl-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -189,6 +191,7 @@ kind: Deployment
 metadata:
   name: industry-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -200,6 +203,7 @@ kind: Deployment
 metadata:
   name: pricing-power-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
@@ -211,6 +215,7 @@ kind: Deployment
 metadata:
   name: ocr-service
 spec:
+  replicas: 0
   template:
     spec:
       containers:
