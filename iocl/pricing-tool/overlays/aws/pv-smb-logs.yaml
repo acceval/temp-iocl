@@ -9,14 +9,24 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  flexVolume:
-    driver: "fnordian/cv"
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - vers=3.0
+  csi:
+    driver: smb.csi.k8s.io
     readOnly: false
-    options:
+    volumeHandle: logs-vol1
+    volumeAttributes:
       source: "//10.0.10.202/pmt"
-      mountOptions: "dir_mode=0700,file_mode=0600"
-      cifsuser: "nobody"
-      cifspass: "nobody"
+  # flexVolume:
+  #   driver: "fnordian/cv"
+  #   readOnly: false
+  #   options:
+  #     source: "//10.0.10.202/pmt"
+  #     mountOptions: "dir_mode=0700,file_mode=0600"
+  #     cifsuser: "nobody"
+  #     cifspass: "nobody"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -25,6 +35,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
+  volumeName: logs-pv
   storageClassName: ""
   resources:
     requests:
