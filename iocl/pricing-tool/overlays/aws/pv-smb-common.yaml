@@ -7,7 +7,7 @@ spec:
     storage: 10Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   flexVolume:
     driver: "fnordian/cv"
@@ -25,6 +25,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
+  volumeName: common-pv
   storageClassName: ""
   resources:
     requests:
