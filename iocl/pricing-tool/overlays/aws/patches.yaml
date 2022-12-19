@@ -70,25 +70,24 @@ spec:
       - name: common-service
         image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-commons:1.2.1-DEVT
         volumeMounts:
-        - name: common-vm
+        - name: nfs-v
           mountPath: /file-repo
           subPath: common/file-repo
-        - name: common-vm
+        - name: nfs-v
           mountPath: /upload-dir
           subPath: common/upload-dir
-        - name: common-vm
+        - name: nfs-v
           mountPath: /archive-dir
           subPath: common/archive-dir
-        - name: logs-vm
+        - name: nfs-v
           mountPath: /logs
           subPath: logs
       volumes:
-        - name: common-vm
-          persistentVolumeClaim:
-            claimName: common-pvc
-        - name: logs-vm
-          persistentVolumeClaim:
-            claimName: logs-pvc
+        - name: nfs-v
+          nfs:
+            server: ip-10-0-10-202.ec2.internal
+            path: /share/nfsdata
+            readOnly: false
 ---
 apiVersion: apps/v1
 kind: Deployment
