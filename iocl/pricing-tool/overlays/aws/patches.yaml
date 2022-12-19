@@ -81,7 +81,7 @@ spec:
           subPath: common/archive-dir
         - name: nfs-v
           mountPath: /logs
-          subPath: logs
+          subPath: logs/common
       volumes:
         - name: nfs-v
           nfs:
