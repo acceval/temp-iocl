@@ -13,7 +13,7 @@ spec:
         run: ocr-service
     spec:
       containers:
-      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-ocr-server
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-ocr
         name: ocr-service
         imagePullPolicy: IfNotPresent
         resources:
