@@ -85,7 +85,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: mumdcv-K8s-postgressdb
+            server: 10.146.111.133
             path: /share/nfsdata
             readOnly: false
 ---
