@@ -15,7 +15,7 @@ kind: Deployment
 metadata:
   name: config-server
 spec:
-  replicas: 2
+  replicas: 1
   template:
     spec:
       containers:
