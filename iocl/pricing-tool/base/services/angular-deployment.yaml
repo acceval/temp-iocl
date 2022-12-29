@@ -15,8 +15,8 @@ spec:
         app: angular-webapp
     spec:
       containers:
-      - name: angular-webapp
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-smarttradz-angular
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-smarttradz-angular
+        name: angular-webapp
         command: ["/bin/sh","-c"]
         args: ["sed -i 's/listen  .*/listen 3000;/g' /etc/nginx/conf.d/default.conf && sed -i 's/listen  .*/listen 3000;/g' /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"]
         imagePullPolicy: IfNotPresent
