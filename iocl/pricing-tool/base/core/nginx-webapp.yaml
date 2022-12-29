@@ -24,6 +24,16 @@ spec:
             memory: "128Mi"
         ports:
         - containerPort: 80
+      restartPolicy: Always
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: name
+                operator: In
+                values:
+                - main-worker
 
 ---
 
@@ -39,5 +49,5 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
-  type: ClusterIP
+    nodePort: 30003
+  type: NodePort
