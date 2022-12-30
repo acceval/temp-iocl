@@ -50,7 +50,7 @@ metadata:
     run: zuul-server
 spec:
   ports:
-  - port: 8888
+  - port: 8000
     protocol: TCP
   selector:
     run: zuul-server
