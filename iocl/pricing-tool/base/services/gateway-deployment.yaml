@@ -30,15 +30,15 @@ spec:
         - name: smarttradzt-ecr
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: name
-                operator: In
-                values:
-                - main-worker
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #       - matchExpressions:
+      #         - key: name
+      #           operator: In
+      #           values:
+      #           - main-worker
 
 ---
 
@@ -49,9 +49,11 @@ metadata:
   labels:
     run: zuul-server
 spec:
+  type: NodePort
+  publishNotReadyAddresses: true
   ports:
   - port: 8000
-    protocol: TCP
+    nodePort: 30030
   selector:
     run: zuul-server
 

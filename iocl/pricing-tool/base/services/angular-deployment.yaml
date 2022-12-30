@@ -32,15 +32,15 @@ spec:
         - name: smarttradzt-ecr
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: name
-                operator: In
-                values:
-                - main-worker
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #       - matchExpressions:
+      #         - key: name
+      #           operator: In
+      #           values:
+      #           - main-worker
 
 ---
 
@@ -51,8 +51,10 @@ metadata:
   labels:
     run: angular-webapp
 spec:
+  type: NodePort
+  publishNotReadyAddresses: true
   ports:
   - port: 80
-    protocol: TCP
+    nodePort: 30000
   selector:
     run: angular-webapp
