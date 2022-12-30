@@ -40,20 +40,19 @@ spec:
                 values:
                 - main-worker
 
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: zuul-server
-  labels:
-    run: zuul-server
-spec:
-  ports:
-  - port: 8000
-    protocol: TCP
-  selector:
-    run: zuul-server
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: zuul-server
+#   labels:
+#     run: zuul-server
+# spec:
+#   ports:
+#   - port: 8000
+#     protocol: TCP
+#   selector:
+#     run: zuul-server
 
 #---
 # apiVersion: v1
