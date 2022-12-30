@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: angular-webapp
 spec:
-  replicas: 0
+  replicas: 1
   template:
     spec:
       containers:
