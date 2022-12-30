@@ -27,7 +27,7 @@ spec:
           - name: _JAVA_OPTIONS
             value: "-Xms1024m -Xmx2048m"
         ports:
-        - containerPort: 3000
+        - containerPort: 80
       imagePullSecrets:
         - name: smarttradzt-ecr
       dnsPolicy: ClusterFirst
@@ -52,7 +52,7 @@ metadata:
     run: angular-webapp
 spec:
   ports:
-  - port: 3000
+  - port: 80
     protocol: TCP
   selector:
     run: angular-webapp
