@@ -47,13 +47,13 @@ spec:
   selector:
     app: nginx
   ports:
-  - port: 88
-    name: nginx-web
+  - name: nginx-app
+    port: 88
     nodePort: 30003
-  - port: 80
-    name: ng-app
+  - name: ng-app
+    port: 80
     nodePort: 30001
-  - port: 8000
-    name: zuul-app
+  - name: zuul-app
+    port: 8000
     nodePort: 30030
   type: NodePort
