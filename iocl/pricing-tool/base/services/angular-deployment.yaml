@@ -42,16 +42,19 @@ spec:
                 values:
                 - main-worker
 
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: angular-webapp
-#   labels:
-#     run: angular-webapp
-# spec:
-#   ports:
-#   - port: 80
-#     protocol: TCP
-#   selector:
-#     run: angular-webapp
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-webapp
+  labels:
+    run: angular-webapp
+spec:
+  type: NodePort
+  publishNotReadyAddresses: true
+  ports:
+  - port: 80
+    nodePort: 30000
+  selector:
+    run: angular-webapp
