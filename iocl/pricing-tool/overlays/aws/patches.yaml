@@ -239,6 +239,7 @@ metadata:
   name: angular-webapp
 spec:
   type: NodePort
+  publishNotReadyAddresses: true
   ports:
   - port: 80
     nodePort: 30000
@@ -249,6 +250,7 @@ metadata:
   name: zuul-server
 spec:
   type: NodePort
+  publishNotReadyAddresses: true
   ports:
   - port: 8000
     nodePort: 30030
