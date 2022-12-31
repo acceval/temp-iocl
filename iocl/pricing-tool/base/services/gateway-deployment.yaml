@@ -49,11 +49,8 @@ kind: Service
 metadata:
   name: zuul-server
 spec:
-  type: NodePort
-  publishNotReadyAddresses: true
   ports:
   - port: 8000
-    nodePort: 30030
   selector:
     app: zuul-server
 

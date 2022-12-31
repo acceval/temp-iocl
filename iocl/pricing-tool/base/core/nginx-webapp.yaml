@@ -45,6 +45,4 @@ spec:
   selector:
     app: nginx
   ports:
-  - port: 88
-    nodePort: 30003
-  type: NodePort
+  - port: 80

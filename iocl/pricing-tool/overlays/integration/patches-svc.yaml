@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-webapp
+spec:
+  type: NodePort
+  publishNotReadyAddresses: true
+  ports:
+  - port: 80
+    nodePort: 30000
+  selector:
+    app: angular-webapp
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: zuul-server
+spec:
+  type: NodePort
+  publishNotReadyAddresses: true
+  ports:
+  - port: 8000
+    nodePort: 30030
+  selector:
+    app: zuul-server
