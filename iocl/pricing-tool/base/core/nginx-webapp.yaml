@@ -37,12 +37,12 @@ spec:
 
 ---
 
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: nginx
 spec:
-  selector:
-    app: nginx
   ports:
   - port: 88
+  selector:
+    app: nginx
