@@ -23,7 +23,7 @@ spec:
             cpu: "0.1"
             memory: "128Mi"
         ports:
-        - containerPort: 88
+        - containerPort: 80
       restartPolicy: Always
       affinity:
         nodeAffinity:
@@ -43,6 +43,6 @@ metadata:
   name: nginx
 spec:
   ports:
-  - port: 88
+  - port: 80
   selector:
     app: nginx
