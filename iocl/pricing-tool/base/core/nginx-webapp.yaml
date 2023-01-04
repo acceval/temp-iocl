@@ -43,7 +43,6 @@ metadata:
   name: nginx
 spec:
   ports:
-  - port: 8092
-    targetPort: 80
+  - port: 80
   selector:
     app: nginx

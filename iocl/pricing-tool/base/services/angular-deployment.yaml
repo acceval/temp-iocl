@@ -50,7 +50,6 @@ metadata:
   name: angular-webapp
 spec:
   ports:
-  - port: 8090
-    targetPort: 80
+  - port: 80
   selector:
     app: angular-webapp
