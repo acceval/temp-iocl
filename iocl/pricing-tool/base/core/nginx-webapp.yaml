@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      run: nginx
   template:
     metadata:
       labels:
-        app: nginx
+        run: nginx
     spec:
       containers:
       - name: nginx
@@ -40,9 +40,9 @@ kind: Service
 metadata:
   name: nginx
   labels:
-    app: nginx
+    run: nginx
 spec:
   ports:
   - port: 80
   selector:
-    app: nginx
+    run: nginx
