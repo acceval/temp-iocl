@@ -50,7 +50,8 @@ metadata:
   name: zuul-server
 spec:
   ports:
-  - port: 8000
+  - port: 8091
+    targetPort: 8000
   selector:
     app: zuul-server
 

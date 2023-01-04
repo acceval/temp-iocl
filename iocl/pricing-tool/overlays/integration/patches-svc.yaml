@@ -7,7 +7,6 @@ spec:
   publishNotReadyAddresses: true
   ports:
   - port: 8090
-    name: my-port
     targetPort: 80
     nodePort: 30000
   selector:
@@ -24,7 +23,6 @@ spec:
   publishNotReadyAddresses: true
   ports:
   - port: 8091
-    name: my-port
     targetPort: 8000
     nodePort: 30030
   selector:
@@ -40,6 +38,5 @@ spec:
   type: NodePort
   ports:
   - port: 8092
-    name: my-port
     targetPort: 80
     nodePort: 30003
