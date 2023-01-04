@@ -7,6 +7,7 @@ spec:
   publishNotReadyAddresses: true
   ports:
   - port: 80
+    targetPort: 80
     nodePort: 30000
   selector:
     app: angular-webapp
@@ -22,6 +23,7 @@ spec:
   publishNotReadyAddresses: true
   ports:
   - port: 8000
+    targetPort: 8000
     nodePort: 30030
   selector:
     app: zuul-server
@@ -36,4 +38,5 @@ spec:
   type: NodePort
   ports:
   - port: 80
+    targetPort: 80
     nodePort: 30003
