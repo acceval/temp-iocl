@@ -32,7 +32,7 @@ kind: Service
 metadata:
   name: rabbitmq
   labels:
-    run: rabbitmq
+    app: rabbitmq
 spec:
   ports:
   - name: amqp
