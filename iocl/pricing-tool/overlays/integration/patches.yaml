@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: config-server
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-config:1.2.2-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-config:1.2.3-DEVT
         volumeMounts:
         - name: nfs-v
           mountPath: /logs
