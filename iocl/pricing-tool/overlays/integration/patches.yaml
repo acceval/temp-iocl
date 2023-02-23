@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: config-server
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-config:1.2.3-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-config:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -54,7 +54,7 @@ spec:
     spec:
       containers:
       - name: eureka-server
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-eureka:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-eureka:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -77,7 +77,7 @@ spec:
     spec:
       containers:
       - name: zuul-server
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-zuul:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-zuul:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -100,7 +100,7 @@ spec:
     spec:
       containers:
       - name: identity-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-identity-management:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-identity-management:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -123,7 +123,7 @@ spec:
     spec:
       containers:
       - name: common-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-commons:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-commons:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -155,7 +155,7 @@ spec:
     spec:
       containers:
       - name: masterdata-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-master-data:1.2.2-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-master-data:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -178,7 +178,7 @@ spec:
     spec:
       containers:
       - name: auth-server
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-auth:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-auth:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -201,7 +201,7 @@ spec:
     spec:
       containers:
       - name: integration-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-integration:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-integration:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -224,7 +224,7 @@ spec:
     spec:
       containers:
       - name: volume-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-volume:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-volume:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -247,7 +247,7 @@ spec:
     spec:
       containers:
       - name: deal-management-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-deal-management:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-deal-management:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -270,7 +270,7 @@ spec:
     spec:
       containers:
       - name: pricing-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-pricing:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-pricing:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -293,7 +293,7 @@ spec:
     spec:
       containers:
       - name: workflow-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-workflow-server:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-workflow-server:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -316,7 +316,7 @@ spec:
     spec:
       containers:
       - name: etl-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-etl:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-etl:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -339,7 +339,7 @@ spec:
     spec:
       containers:
       - name: industry-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-industry-analysis:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-industry-analysis:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -362,7 +362,7 @@ spec:
     spec:
       containers:
       - name: pricing-power-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-pricing-power:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-pricing-power:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
@@ -385,7 +385,7 @@ spec:
     spec:
       containers:
       - name: ocr-service
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-ocr:1.2.1-DEVT
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-ocr:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
