@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integration-service
+spec:
+  selector:
+    matchLabels:
+      run: integration-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: integration-service
+    spec:
+      containers:
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-integration
+        name: integration-service
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1024Mi"
+          limits:
+            memory: "1536Mi"
+        env:
+          - name: _JAVA_OPTIONS
+            value: "-Xms512m -Xmx1024m"
+        ports:
+        - containerPort: 8099
+      imagePullSecrets:
+        - name: smarttradzt-ecr
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: integration-service
+  labels:
+    run: integration-service
+spec:
+  ports:
+  - port: 8099
+    protocol: TCP
+  selector:
+    run: integration-service

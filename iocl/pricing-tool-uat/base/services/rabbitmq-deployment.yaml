@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+spec:
+  selector:
+    matchLabels:
+      run: rabbitmq
+  template:
+    metadata:
+      labels:
+        run: rabbitmq
+    spec:
+      containers:
+      - name: rabbitmq
+        image: rabbitmq:3-management
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 15672
+            name: http
+          - containerPort: 5672
+            name: amqp
+      imagePullSecrets:
+        - name: smarttradzt-ecr
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  labels:
+    run: rabbitmq
+spec:
+  ports:
+  - name: amqp
+    port: 5672
+    protocol: TCP
+  - name: http
+    port: 15672
+    protocol: TCP
+  selector:
+    run: rabbitmq

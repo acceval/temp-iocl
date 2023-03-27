@@ -1,0 +1,24 @@
+commonLabels:
+  app: pricing-tool
+resources:
+- ./core/namespaces.yaml
+- ./core/nginx-webapp.yaml
+- ./services/angular-deployment.yaml
+- ./services/config-deployment.yaml
+- ./services/eureka-deployment.yaml
+- ./services/gateway-deployment.yaml
+- ./services/common-deployment.yaml
+- ./services/identity-management-deployment.yaml
+- ./services/master-data-deployment.yaml
+- ./services/auth-deployment.yaml
+- ./services/rabbitmq-deployment.yaml
+- ./services/hazelcast-rbac.yml
+- ./services/volume-deployment.yaml
+- ./services/deal-management-deployment.yaml
+- ./services/pricing-deployment.yaml
+- ./services/workflow-deployment.yaml
+- ./services/etl-deployment.yaml
+- ./services/industry-analysis-deployment.yaml
+- ./services/pricing-power-deployment.yaml
+- ./services/integration-deployment.yaml
+- ./services/ocr-deployment.yaml

@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: industry-service
+spec:
+  selector:
+    matchLabels:
+      run: industry-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: industry-service
+    spec:
+      containers:
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-industry-analysis
+        name: industry-service
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1536Mi"
+          limits:
+            memory: "3072Mi"
+        env:
+          - name: _JAVA_OPTIONS
+            value: "-Xms1024m -Xmx2048m"
+        ports:
+        - containerPort: 8092
+      imagePullSecrets:
+        - name: smarttradzt-ecr
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: industry-service
+  labels:
+    run: industry-service
+spec:
+  ports:
+  - port: 8092
+    protocol: TCP
+  selector:
+    run: industry-service
