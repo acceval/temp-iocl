@@ -13,7 +13,7 @@ spec:
         run: eureka-server
     spec:
       containers:
-      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-eureka
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-eureka
         name: eureka-server
         imagePullPolicy: Always
         resources:

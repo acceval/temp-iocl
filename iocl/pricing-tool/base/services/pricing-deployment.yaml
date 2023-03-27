@@ -13,7 +13,7 @@ spec:
         run: pricing-service
     spec:
       containers:
-      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-pricing
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-pricing
         name: pricing-service
         imagePullPolicy: Always
         resources:
