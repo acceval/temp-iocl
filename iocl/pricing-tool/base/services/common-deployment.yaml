@@ -13,7 +13,7 @@ spec:
         run: common-service
     spec:
       containers:
-      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-commons
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-commons
         name: common-service
         imagePullPolicy: Always
         resources:

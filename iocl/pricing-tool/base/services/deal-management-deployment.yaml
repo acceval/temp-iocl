@@ -13,7 +13,7 @@ spec:
         run: deal-management-service
     spec:
       containers:
-      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-deal-management
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-deal-management
         name: deal-management-service
         imagePullPolicy: Always
         resources:
