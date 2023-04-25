@@ -22,3 +22,4 @@ resources:
 - ./services/pricing-power-deployment.yaml
 - ./services/integration-deployment.yaml
 - ./services/ocr-deployment.yaml
+- ./services/strategise-deployment.yaml
