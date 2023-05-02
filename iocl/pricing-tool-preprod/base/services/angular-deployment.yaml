@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: angular-webapp
+  template:
+    metadata:
+      labels:
+        run: angular-webapp
+    spec:
+      containers:
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-smarttradz-angular
+        name: angular-webapp
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1536Mi"
+          limits:
+            memory: "3072Mi"
+        env:
+          - name: _JAVA_OPTIONS
+            value: "-Xms1024m -Xmx2048m"
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+        - name: smarttradzt-ecr
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: name
+                operator: In
+                values:
+                - main-worker
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-webapp
+  labels:
+    run: angular-webapp
+spec:
+  ports:
+  - port: 3000
+  selector:
+    run: angular-webapp

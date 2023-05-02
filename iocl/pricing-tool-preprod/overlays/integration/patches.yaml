@@ -1,0 +1,444 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-webapp
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: angular-webapp
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-smarttradz-angular:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/angular-webapp
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: config-server
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-config:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/config-server
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: eureka-server
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-eureka:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/eureka-server
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuul-server
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: zuul-server
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-zuul:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/zuul-server
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: identity-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-identity-management:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/identity-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: common-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: common-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-commons:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /file-repo
+          subPath: common/file-repo
+        - name: nfs-v
+          mountPath: /upload-dir
+          subPath: common/upload-dir
+        - name: nfs-v
+          mountPath: /archive-dir
+          subPath: common/archive-dir
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/common-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: masterdata-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: masterdata-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-master-data:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/masterdata-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-server
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: auth-server
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-auth:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/auth-server
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integration-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: integration-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-integration:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/integration-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volume-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: volume-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-volume:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/volume-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deal-management-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: deal-management-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-deal-management:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/deal-management-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricing-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: pricing-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-pricing:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/pricing-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workflow-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: workflow-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-workflow-server:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/workflow-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: etl-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: etl-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-etl:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/etl-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: industry-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: industry-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-industry-analysis:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/industry-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strategise-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: strategise-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-strategise:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/strategise-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricing-power-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: pricing-power-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-pricing-power:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/pricing-power-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocr-service
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: ocr-service
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-ocr:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/ocr-service
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: rabbitmq
+        image: rabbitmq:3-management
+        volumeMounts:
+        - name: nfs-v
+          mountPath: /logs
+          subPath: logs/rabbitmq
+      volumes:
+        - name: nfs-v
+          nfs:
+            server: 10.146.111.152
+            path: /share/nfsdata
+            readOnly: false

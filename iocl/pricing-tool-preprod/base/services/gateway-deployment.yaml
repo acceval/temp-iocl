@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuul-server
+spec:
+  selector:
+    matchLabels:
+      run: zuul-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: zuul-server
+    spec:
+      containers:
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-zuul
+        name: zuul-server
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1024Mi"
+          limits:
+            memory: "1536Mi"
+        env:
+          - name: _JAVA_OPTIONS
+            value: "-Xms512m -Xmx1024m"
+        ports:
+        - containerPort: 8000
+      imagePullSecrets:
+        - name: smarttradzt-ecr
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: name
+                operator: In
+                values:
+                - main-worker
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: zuul-server
+  labels:
+    run: zuul-server
+spec:
+  ports:
+  - port: 8000
+  selector:
+    run: zuul-server
+
+#---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   annotations:
+#     service.beta.kubernetes.io/azure-dns-label-name: azdev.smarttradzt.com
+#     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+#   name: zuul-server
+#   labels:
+#     run: zuul-server
+# spec:
+#   type: LoadBalancer
+#   ports:
+#   - port: 8000
+#     nodePort: 30001
+#     protocol: TCP
+#   selector:
+#     run: zuul-server
