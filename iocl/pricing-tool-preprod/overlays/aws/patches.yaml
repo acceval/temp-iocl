@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
       - name: angular-webapp
-        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/prod/iocl-smarttradz-angular:latest
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/preprod/iocl-smarttradz-angular:latest
 ---
 apiVersion: apps/v1
 kind: Deployment
