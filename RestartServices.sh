@@ -1,0 +1,17 @@
+kubectl rollout restart deployment config-server -n pricing-tool-int
+kubectl rollout restart deployment eureka-server -n pricing-tool-int
+kubectl rollout restart deployment zuul-server -n pricing-tool-int
+kubectl rollout restart deployment auth-server -n pricing-tool-int
+kubectl rollout restart deployment identity-service -n pricing-tool-int
+kubectl rollout restart deployment common-service -n pricing-tool-int
+kubectl rollout restart deployment masterdata-service -n pricing-tool-int
+kubectl rollout restart deployment integration-service -n pricing-tool-int
+kubectl rollout restart deployment volume-service -n pricing-tool-int
+kubectl rollout restart deployment deal-management-service -n pricing-tool-int
+kubectl rollout restart deployment pricing-service -n pricing-tool-int
+kubectl rollout restart deployment workflow-service -n pricing-tool-int
+kubectl rollout restart deployment etl-service -n pricing-tool-int
+kubectl rollout restart deployment industry-service -n pricing-tool-int
+kubectl rollout restart deployment strategise-service -n pricing-tool-int
+kubectl rollout restart deployment pricing-power-service -n pricing-tool-int
+kubectl rollout restart deployment ocr-service -n pricing-tool-int
