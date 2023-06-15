@@ -1,7 +1,3 @@
-kubectl rollout restart deployment config-server -n pricing-tool-int
-kubectl rollout restart deployment eureka-server -n pricing-tool-int
-kubectl rollout restart deployment zuul-server -n pricing-tool-int
-kubectl rollout restart deployment auth-server -n pricing-tool-int
 kubectl rollout restart deployment identity-service -n pricing-tool-int
 kubectl rollout restart deployment common-service -n pricing-tool-int
 kubectl rollout restart deployment masterdata-service -n pricing-tool-int
@@ -15,3 +11,5 @@ kubectl rollout restart deployment industry-service -n pricing-tool-int
 kubectl rollout restart deployment strategise-service -n pricing-tool-int
 kubectl rollout restart deployment pricing-power-service -n pricing-tool-int
 kubectl rollout restart deployment ocr-service -n pricing-tool-int
+kubectl rollout restart deployment angular-webapp -n pricing-tool-int
+kubectl rollout restart deployment rabbitmq -n pricing-tool-int
