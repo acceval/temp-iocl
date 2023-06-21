@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workflow-service
+spec:
+  selector:
+    matchLabels:
+      run: workflow-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: workflow-service
+    spec:
+      containers:
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/prod/iocl-workflow-server
+        name: workflow-service
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1536Mi"
+          limits:
+            memory: "3072Mi"
+        env:
+          - name: _JAVA_OPTIONS
+            value: "-Xms1024m -Xmx2048m"
+        ports:
+        - containerPort: 8098
+      imagePullSecrets:
+        - name: smarttradzt-ecr
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: workflow-service
+  labels:
+    run: workflow-service
+spec:
+  ports:
+  - port: 8098
+    protocol: TCP
+  selector:
+    run: workflow-service
