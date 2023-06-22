@@ -25,7 +25,7 @@ spec:
         - name: CONFIG_SERVICE_PASSWORD
           value: "password"
         - name: SEARCH_LOCATION
-          value: "classpath:/pmtpreprod"
+          value: "classpath:/pmtprod"
         - name: _JAVA_OPTIONS
           value: "-Xms256m -Xmx512m"
         ports:
