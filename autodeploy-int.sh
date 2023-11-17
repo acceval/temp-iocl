@@ -1,7 +1,7 @@
 ACCOUNT=395321600628
 REGION=ap-southeast-1
 SECRET_NAME=smarttradzt-ecr
-EMAIL=raja.r@smarttradzt.com
+EMAIL=ben.ho.tey@smarttradzt.com
 NAMESPACE=pricing-tool-int
 
 TOKEN=`aws ecr --region=$REGION get-authorization-token --output text --query authorizationData[].authorizationToken | base64 -d | cut -d: -f2`
