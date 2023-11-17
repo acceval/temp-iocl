@@ -23,3 +23,4 @@ resources:
 - ./services/integration-deployment.yaml
 - ./services/ocr-deployment.yaml
 - ./services/strategise-deployment.yaml
+- ./services/price-opt-deployment.yaml
