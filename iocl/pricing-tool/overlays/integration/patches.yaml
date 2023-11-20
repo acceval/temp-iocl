@@ -123,7 +123,7 @@ spec:
     spec:
       containers:
       - name: common-service
-        image: nginx:1.23
+        image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/iocl-commons:latest
         imagePullPolicy: Always
         volumeMounts:
         - name: nfs-v
