@@ -18,16 +18,16 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "1536Mi"
+            memory: "2048Mi"
           limits:
-            memory: "3072Mi"
+            memory: "4608Mi"
         env:
           - name: APP_NAME
             value: "pricing-service"
           - name: CONFIG_URI
             value: "http://config-server:8888"
           - name: _JAVA_OPTIONS
-            value: "-Xms1024m -Xmx2048m"
+            value: "-Xms1024m -Xmx3072m"
         ports:
         - containerPort: 8094
       imagePullSecrets:

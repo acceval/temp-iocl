@@ -24,3 +24,5 @@ resources:
 - ./services/ocr-deployment.yaml
 - ./services/strategise-deployment.yaml
 - ./services/price-opt-deployment.yaml
+- ./services/win-prob-deployment.yaml
+- ./services/price-seg-deployment.yaml
