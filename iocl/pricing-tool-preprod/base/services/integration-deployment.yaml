@@ -13,7 +13,7 @@ spec:
         run: integration-service
     spec:
       containers:
-      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/prod/iocl-integration
+      - image: 395321600628.dkr.ecr.ap-southeast-1.amazonaws.com/uat/iocl-integration
         name: integration-service
         imagePullPolicy: Always
         resources:
