@@ -24,6 +24,8 @@ spec:
         env:
           - name: _JAVA_OPTIONS
             value: "-Xms1024m -Xmx2048m"
+          - name: HOST
+            value: "strategise-service"
         ports:
         - containerPort: 8866
       imagePullSecrets:
