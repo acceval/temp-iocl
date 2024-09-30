@@ -20,14 +20,14 @@ spec:
           requests:
             memory: "2048Mi"
           limits:
-            memory: "4608Mi"
+            memory: "9216Mi"
         env:
           - name: APP_NAME
             value: "masterdata-service"
           - name: CONFIG_URI
             value: "http://config-server:8888"
           - name: _JAVA_OPTIONS
-            value: "-Xms1024m -Xmx3072m"
+            value: "-Xms1024m -Xmx10240m"
         ports:
         - containerPort: 8091
       imagePullSecrets:
