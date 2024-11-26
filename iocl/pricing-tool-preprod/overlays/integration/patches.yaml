@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -40,7 +40,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -63,7 +63,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -86,7 +86,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -109,7 +109,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -141,7 +141,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -164,7 +164,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -187,7 +187,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -210,7 +210,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -233,7 +233,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -256,7 +256,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -279,7 +279,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -302,7 +302,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -325,7 +325,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -348,7 +348,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -371,7 +371,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -394,7 +394,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -417,7 +417,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -440,7 +440,7 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
 ---
@@ -508,6 +508,6 @@ spec:
       volumes:
         - name: nfs-v
           nfs:
-            server: 10.146.111.152
+            server: 10.146.111.203
             path: /share/nfsdata
             readOnly: false
